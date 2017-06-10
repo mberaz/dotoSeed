@@ -19,16 +19,22 @@
     <input type="text" formControlName="email">
     <p class="error-message" *ngIf="registerForm.controls.email.errors && !registerForm.controls.email.pristine ">This field is required!</p>
 
+    <br/>
+    <label>numberOfRoles:</label>
+    <input type="text" formControlName="numberOfRoles">
     <!--<small [hidden]="myForm.controls.name.valid ||">
         Name is required (minimum 5 characters).
     </small>-->
 
 
-    <custom-counter [(counter)]="userCount"></custom-counter>
-    <p>counterValue = {{userCount}}</p>
-
 
     <button type="submit">Submit</button>
 </form>
+
+<div>
+    <custom-counter [(counter)]="counterValue"></custom-counter>
+    <p><code>counterValue = {{counterValue}}</code></p>
+    <hr>
+</div>
 
 <button type="button" (click)="updateUrl();">update url</button>

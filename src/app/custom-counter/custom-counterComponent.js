@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var CustomCounterComponent = (function () {
     function CustomCounterComponent() {
-        this.counterValue = 0;
+        this.counterValue = 5;
         this.counterChange = new core_1.EventEmitter();
     }
     Object.defineProperty(CustomCounterComponent.prototype, "counter", {

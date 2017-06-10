@@ -14,10 +14,10 @@ var modal_service_1 = require("./modal/modal.service");
 var AppComponent = (function () {
     function AppComponent(modalService) {
         this.modalService = modalService;
-        this.bodyText = 'this is a text for baron';
         this.name = 'Angular';
         this.title = 'app works!';
         this.appPageTitle = 'todos seed app';
+        this.bodyText = 'this is a text for baron';
     }
     AppComponent.prototype.openModal = function (id) {
         this.modalService.open(id);

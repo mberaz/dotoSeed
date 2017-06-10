@@ -6,7 +6,7 @@ function validateFullName(control) {
     //return true if NOT VALID
     var isValid = parts.length === 2 && parts[0].trim() !== '' && parts[1].trim() !== '';
     if (!isValid) {
-        return { valid: true };
+        return { notValid: true };
     }
     return null;
 }

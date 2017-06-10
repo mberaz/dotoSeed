@@ -11,7 +11,7 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
 })
 export class CustomCounterComponent {
 
-  counterValue = 0;
+  counterValue = 5;
 
   @Input()
   get counter() {
@@ -19,8 +19,8 @@ export class CustomCounterComponent {
   }
   @Output() counterChange = new EventEmitter();
   set counter(val) {
-    this.counterValue = val;
-    this.counterChange.emit(this.counterValue);
+    this.counterValue= val;
+    this.counterChange.emit( this.counterValue);
   }
 
   decrement() {

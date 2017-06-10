@@ -16,6 +16,7 @@ var ValidateFullName_1 = require("./validators/ValidateFullName");
 var UserComponent = (function () {
     function UserComponent(formBuilder) {
         this.formBuilder = formBuilder;
+        this.counterValue = 5;
         this.events = [];
     }
     UserComponent.prototype.ngOnInit = function () {
@@ -24,6 +25,7 @@ var UserComponent = (function () {
             firstname: ['', [forms_1.Validators.required]],
             lastname: ['', [forms_1.Validators.required]],
             fullname: ['', [ValidateFullName_1.validateFullName]],
+            numberOfRoles: [this.counterValue],
             url: ['', [ValidateUrl_1.ValidateUrl]],
             email: ['', [forms_1.Validators.required, forms_1.Validators.email]]
             // address: this.formBuilder.group({
@@ -34,9 +36,16 @@ var UserComponent = (function () {
         });
         //this.subcribeToFormChanges();
     };
+    UserComponent.prototype.ngOnChanges = function (changes) {
+        var name = changes.name;
+        //counterValue
+        console.log('prev value: ', name.previousValue);
+        console.log('got name: ', name.currentValue);
+    };
     UserComponent.prototype.updateUrl = function () {
         // (<FormControl>this.registerForm.controls['name'])
-        this.registerForm.controls.url.setValue('http://baron.com', { onlySelf: true });
+        //(<FormControl>this.registerForm.controls.url).setValue('http://baron.com', { onlySelf: true });
+        this.registerForm.patchValue({ url: 'http://baron.com', numberOfRoles: this.counterValue });
     };
     UserComponent.prototype.save = function (model, isValid) {
         this.submitted = true; // set form submit to true
@@ -54,6 +63,10 @@ var UserComponent = (function () {
     };
     return UserComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], UserComponent.prototype, "counterValue", void 0);
 UserComponent = __decorate([
     core_1.Component({
         selector: 'app-user',

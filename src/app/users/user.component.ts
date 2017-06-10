@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges, SimpleChange, Input } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { User } from './user';
 import { ValidateUrl } from './validators/ValidateUrl';
@@ -9,12 +9,13 @@ import { validateFullName } from './validators/ValidateFullName';
     styleUrls: ['./user.component.css']
 
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements OnChanges, OnInit {
     registerForm: FormGroup;
+    @Input() counterValue = 5;
     public submitted: boolean; // keep track on whether form is submitted
     public events: any[] = [];
     constructor(private formBuilder: FormBuilder) { }
-    public userCount: 5;
+
     ngOnInit() {
         this.submitted = false;
 
@@ -22,7 +23,7 @@ export class UserComponent implements OnInit {
             firstname: ['', [Validators.required]],//<any>Validators.minLength(5)
             lastname: ['', [Validators.required]],
             fullname: ['', [validateFullName]],
-
+            numberOfRoles: [this.counterValue],
             url: ['', [ValidateUrl]],
 
             email: ['', [Validators.required, Validators.email]]
@@ -36,9 +37,18 @@ export class UserComponent implements OnInit {
         //this.subcribeToFormChanges();
     }
 
+    ngOnChanges(changes: SimpleChanges) {
+        const name: SimpleChange = changes.name;
+        //counterValue
+        console.log('prev value: ', name.previousValue);
+        console.log('got name: ', name.currentValue);
+
+    }
+
     updateUrl() {
         // (<FormControl>this.registerForm.controls['name'])
-        (<FormControl>this.registerForm.controls.url).setValue('http://baron.com', { onlySelf: true });
+        //(<FormControl>this.registerForm.controls.url).setValue('http://baron.com', { onlySelf: true });
+        this.registerForm.patchValue({ url: 'http://baron.com',numberOfRoles: this.counterValue})
     }
 
     save(model: User, isValid: boolean) {
