@@ -21,6 +21,7 @@ import { ModalComponent } from './modal/modal.directive ';
 import { ModalService } from './modal/modal.service';
 
 import { CustomCounterComponent } from './custom-counter/custom-counterComponent';
+import {NumericComponent} from'./numericControl/numeric.control';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { CustomCounterComponent } from './custom-counter/custom-counterComponent
     FilterPipe,
     ModalComponent,
     CustomCounterComponent,
+    NumericComponent,
   ],
   imports: [
     BrowserModule,

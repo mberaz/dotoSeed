@@ -24,6 +24,7 @@ var filter_pipe_1 = require("./Pipes/filter.pipe");
 var modal_directive_1 = require("./modal/modal.directive ");
 var modal_service_1 = require("./modal/modal.service");
 var custom_counterComponent_1 = require("./custom-counter/custom-counterComponent");
+var numeric_control_1 = require("./numericControl/numeric.control");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -43,6 +44,7 @@ AppModule = __decorate([
             filter_pipe_1.FilterPipe,
             modal_directive_1.ModalComponent,
             custom_counterComponent_1.CustomCounterComponent,
+            numeric_control_1.NumericComponent,
         ],
         imports: [
             platform_browser_1.BrowserModule,

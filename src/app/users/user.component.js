@@ -11,12 +11,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
-var ValidateUrl_1 = require("./validators/ValidateUrl");
-var ValidateFullName_1 = require("./validators/ValidateFullName");
+var ValidateUrl_1 = require("./../validators/ValidateUrl");
+var ValidateFullName_1 = require("./../validators/ValidateFullName");
+var validateCounterRange_1 = require("../validators/validateCounterRange");
 var UserComponent = (function () {
     function UserComponent(formBuilder) {
         this.formBuilder = formBuilder;
         this.counterValue = 5;
+        this.numberOfRolesMin = 0;
+        this.numberOfRolesMax = 6;
         this.events = [];
     }
     UserComponent.prototype.ngOnInit = function () {
@@ -25,7 +28,7 @@ var UserComponent = (function () {
             firstname: ['', [forms_1.Validators.required]],
             lastname: ['', [forms_1.Validators.required]],
             fullname: ['', [ValidateFullName_1.validateFullName]],
-            numberOfRoles: [this.counterValue],
+            numberOfRoles: [this.counterValue, [validateCounterRange_1.createCounterRangeValidator(this.numberOfRolesMax, this.numberOfRolesMin)]],
             url: ['', [ValidateUrl_1.ValidateUrl]],
             email: ['', [forms_1.Validators.required, forms_1.Validators.email]]
             // address: this.formBuilder.group({

@@ -1,8 +1,9 @@
 import { Component, OnInit, OnChanges, SimpleChanges, SimpleChange, Input } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { User } from './user';
-import { ValidateUrl } from './validators/ValidateUrl';
-import { validateFullName } from './validators/ValidateFullName';
+import { ValidateUrl } from './../validators/ValidateUrl';
+import { validateFullName } from './../validators/ValidateFullName';
+import { createCounterRangeValidator } from "../validators/validateCounterRange";
 @Component({
     selector: 'app-user',
     templateUrl: './user.component.html',
@@ -12,6 +13,8 @@ import { validateFullName } from './validators/ValidateFullName';
 export class UserComponent implements OnChanges, OnInit {
     registerForm: FormGroup;
     @Input() counterValue = 5;
+    numberOfRolesMin=0;
+    numberOfRolesMax=6;
     public submitted: boolean; // keep track on whether form is submitted
     public events: any[] = [];
     constructor(private formBuilder: FormBuilder) { }
@@ -23,7 +26,7 @@ export class UserComponent implements OnChanges, OnInit {
             firstname: ['', [Validators.required]],//<any>Validators.minLength(5)
             lastname: ['', [Validators.required]],
             fullname: ['', [validateFullName]],
-            numberOfRoles: [this.counterValue],
+            numberOfRoles: [this.counterValue,[createCounterRangeValidator(this.numberOfRolesMax, this.numberOfRolesMin)]],
             url: ['', [ValidateUrl]],
 
             email: ['', [Validators.required, Validators.email]]

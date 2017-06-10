@@ -21,7 +21,12 @@
 
     <br/>
     <label>numberOfRoles:</label>
-    <input type="text" formControlName="numberOfRoles">
+    <!--<input type="number" formControlName="numberOfRoles">-->
+    <numeric formControlName="numberOfRoles"></numeric>
+    <p class="error-message" *ngIf="registerForm.controls.numberOfRoles.errors && !registerForm.controls.numberOfRoles.pristine ">
+        {{registerForm.controls.numberOfRoles.errors.error}}
+    </p>
+
     <!--<small [hidden]="myForm.controls.name.valid ||">
         Name is required (minimum 5 characters).
     </small>-->
@@ -30,11 +35,11 @@
 
     <button type="submit">Submit</button>
 </form>
-
+<!--
 <div>
     <custom-counter [(counter)]="counterValue"></custom-counter>
     <p><code>counterValue = {{counterValue}}</code></p>
     <hr>
-</div>
+</div>-->
 
 <button type="button" (click)="updateUrl();">update url</button>
