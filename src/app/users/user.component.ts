@@ -1,0 +1,60 @@
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { User } from './user';
+import { ValidateUrl } from './validators/ValidateUrl';
+import { validateFullName } from './validators/ValidateFullName';
+@Component({
+    selector: 'app-user',
+    templateUrl: './user.component.html',
+    styleUrls: ['./user.component.css']
+
+})
+export class UserComponent implements OnInit {
+    registerForm: FormGroup;
+    public submitted: boolean; // keep track on whether form is submitted
+    public events: any[] = [];
+    constructor(private formBuilder: FormBuilder) { }
+    public userCount: 5;
+    ngOnInit() {
+        this.submitted = false;
+
+        this.registerForm = this.formBuilder.group({
+            firstname: ['', [Validators.required]],//<any>Validators.minLength(5)
+            lastname: ['', [Validators.required]],
+            fullname: ['', [validateFullName]],
+
+            url: ['', [ValidateUrl]],
+
+            email: ['', [Validators.required, Validators.email]]
+            // address: this.formBuilder.group({
+            //     street: [],
+            //     zip: [],
+            //     city: []
+            // })
+        });
+
+        //this.subcribeToFormChanges();
+    }
+
+    updateUrl() {
+        // (<FormControl>this.registerForm.controls['name'])
+        (<FormControl>this.registerForm.controls.url).setValue('http://baron.com', { onlySelf: true });
+    }
+
+    save(model: User, isValid: boolean) {
+        this.submitted = true; // set form submit to true
+
+        // check if model is valid
+        // if valid, call API to save customer
+        console.log(model, isValid);
+    }
+
+    subcribeToFormChanges() {
+        // initialize stream
+        const myFormValueChanges$ = this.registerForm.valueChanges;
+
+        // subscribe to the stream 
+        myFormValueChanges$.subscribe(x => this.events
+            .push({ event: 'STATUS CHANGED', object: x }));
+    }
+}

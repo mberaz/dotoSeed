@@ -1,0 +1,5 @@
+<div>
+  <label>{{counter}}</label>
+  <input type="checkbox" [checked]="task.IsDone" (change)="isDoneStatusChanged(task)">
+  <span> {{task.Id +': '+task.Name|capitalize}}</span>
+</div>

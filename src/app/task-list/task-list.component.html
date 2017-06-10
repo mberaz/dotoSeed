@@ -1,0 +1,9 @@
+<input type="text" placeholder="Filter" #searchName (keyup)="handleKeyup(searchName.value)">
+<ul>
+  <!--<li *ngFor="let task of taskList|search:searchParam; let i=index">-->
+  <li *ngFor="let task of taskList|filter:predicate:searchParam; let i=index">
+    <app-task-item [task]="task" [counter]="i"></app-task-item>
+  </li>
+</ul>
+<span class="info-span">{{taskList.length}} Items left</span><br/>
+<span class="not-done-span">( {{numberOfNotDone}} Items Not Done )</span>

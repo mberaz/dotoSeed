@@ -1,0 +1,6 @@
+<div>
+  <button type="button" class="toggle-all-button" [ngClass]="isDone?'complete-all':'reopen-all'" (click)="toggleAll()">
+    {{isDone?'Complete All' :'Re-open All'}}
+  </button>
+  <input type="text" placeholder="Enter task name" #taskName  (keyup.enter)="handleEnter(taskName.value)">
+</div>

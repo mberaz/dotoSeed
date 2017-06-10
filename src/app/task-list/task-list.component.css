@@ -1,0 +1,11 @@
+.info-span {
+  background-color: lightsteelblue;
+  color: darkorchid;
+  font-size: 18px;
+}
+
+.not-done-span {
+  background-color: lightgoldenrodyellow;
+  color: darkseagreen;
+  font-size: 18px;
+}

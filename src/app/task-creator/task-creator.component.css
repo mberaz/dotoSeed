@@ -1,0 +1,13 @@
+.toggle-all-button{
+    width: 110px;
+}
+
+.complete-all
+{
+    background-color: lawngreen;
+}
+
+.reopen-all
+{
+    background-color: orangered;
+}
