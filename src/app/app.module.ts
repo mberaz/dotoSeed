@@ -23,6 +23,9 @@ import { ModalService } from './modal/modal.service';
 import { CustomCounterComponent } from './custom-counter/custom-counterComponent';
 import {NumericComponent} from'./numericControl/numeric.control';
 
+import {HeroService} from './Heroes/hero.service';
+import {HeroComponent} from './Heroes/hero.component';
+
 
 @NgModule({
   declarations: [
@@ -38,6 +41,7 @@ import {NumericComponent} from'./numericControl/numeric.control';
     ModalComponent,
     CustomCounterComponent,
     NumericComponent,
+    HeroComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,7 @@ import {NumericComponent} from'./numericControl/numeric.control';
     FormsModule,
     HttpModule
   ],
-  providers: [TaskService, ModalService],
+  providers: [TaskService, ModalService,HeroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

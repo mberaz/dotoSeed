@@ -25,6 +25,8 @@ var modal_directive_1 = require("./modal/modal.directive ");
 var modal_service_1 = require("./modal/modal.service");
 var custom_counterComponent_1 = require("./custom-counter/custom-counterComponent");
 var numeric_control_1 = require("./numericControl/numeric.control");
+var hero_service_1 = require("./Heroes/hero.service");
+var hero_component_1 = require("./Heroes/hero.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -45,6 +47,7 @@ AppModule = __decorate([
             modal_directive_1.ModalComponent,
             custom_counterComponent_1.CustomCounterComponent,
             numeric_control_1.NumericComponent,
+            hero_component_1.HeroComponent,
         ],
         imports: [
             platform_browser_1.BrowserModule,
@@ -52,7 +55,7 @@ AppModule = __decorate([
             forms_2.FormsModule,
             http_1.HttpModule
         ],
-        providers: [task_service_1.TaskService, modal_service_1.ModalService],
+        providers: [task_service_1.TaskService, modal_service_1.ModalService, hero_service_1.HeroService],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
