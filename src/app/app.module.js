@@ -27,6 +27,7 @@ var custom_counterComponent_1 = require("./custom-counter/custom-counterComponen
 var numeric_control_1 = require("./numericControl/numeric.control");
 var hero_service_1 = require("./Heroes/hero.service");
 var hero_component_1 = require("./Heroes/hero.component");
+var condition_component_1 = require("./condition/condition.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -46,6 +47,7 @@ AppModule = __decorate([
             filter_pipe_1.FilterPipe,
             modal_directive_1.ModalComponent,
             custom_counterComponent_1.CustomCounterComponent,
+            condition_component_1.ConditionComponent,
             numeric_control_1.NumericComponent,
             hero_component_1.HeroComponent,
         ],

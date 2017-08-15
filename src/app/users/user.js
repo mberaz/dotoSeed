@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var User = (function () {
     function User(id, FirstName, LastName, Email) {
         this.Id = id;
-        this.FirstName = name;
+        this.FirstName = FirstName;
         this.LastName = LastName;
         this.Email = Email;
     }

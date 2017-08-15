@@ -16,7 +16,7 @@ export class HeroComponent implements OnInit {
     }
 
     async  ngOnInit() {
-        var heroes = await this.heroService.getHeroes();
+        var heroes = await this.heroService.getHeroes() as any;
         var s="";
         for (var i = 0; i < heroes.Heros.length; i++) {
             var temp = heroes.Heros[i];

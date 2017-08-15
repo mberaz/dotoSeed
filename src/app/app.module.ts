@@ -25,6 +25,7 @@ import {NumericComponent} from'./numericControl/numeric.control';
 
 import {HeroService} from './Heroes/hero.service';
 import {HeroComponent} from './Heroes/hero.component';
+import { ConditionComponent } from "./condition/condition.component";
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import {HeroComponent} from './Heroes/hero.component';
     FilterPipe,
     ModalComponent,
     CustomCounterComponent,
+    ConditionComponent,
     NumericComponent,
     HeroComponent,
   ],

@@ -5,7 +5,7 @@ export class User {
  public Email: string;
     constructor(id: number, FirstName: string, LastName: string, Email:string) {
         this.Id = id;
-        this.FirstName = name;
+        this.FirstName = FirstName;
         this.LastName = LastName;
         this.Email=Email;
     }

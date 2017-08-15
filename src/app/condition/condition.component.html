@@ -1,0 +1,14 @@
+<h1>
+    condition test </h1>
+<button type="button" (click)="setuser()">set user </button>
+<span>{{user!==null}}</span>
+
+<span>{{user!==undefined }}</span>
+
+<div *ngIf="user!==undefined && user!==null">
+    <span>{{user.FirstName}}</span>
+    <br/>
+    <span>{{user.LastName}}</span>
+    <br/>
+    <span>{{user.Email}}</span>
+</div>
